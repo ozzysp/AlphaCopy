@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         self.darkBG.setFrameShadow(QtWidgets.QFrame.Raised)
         self.darkBG.setObjectName("darkBG")
         self.DonePB = QtWidgets.QPushButton(self.darkBG)
-        self.DonePB.setGeometry(QtCore.QRect(90, 90, 251, 61))
+        self.DonePB.setGeometry(QtCore.QRect(90, 100, 251, 61))
         self.DonePB.setStyleSheet("QPushButton {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "    color: rgb(200, 200, 200);\n"
@@ -63,9 +63,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AlphaCopy"))
         self.DonePB.setText(_translate("MainWindow", "Done"))
-        self.SuccesfulLb.setText(_translate("MainWindow", "Succesful Copy"))
+        self.DonePB.setShortcut(_translate("MainWindow", "Return"))
+        self.SuccesfulLb.setText(_translate("MainWindow", "<STRONG>SUCCESFUL COPY"))
 
 
 if __name__ == "__main__":

@@ -19,6 +19,10 @@ class Ui_MainWindow(object):
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(440, 280))
         MainWindow.setMaximumSize(QtCore.QSize(440, 280))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("alphaletter.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("alphaletter.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        MainWindow.setWindowIcon(icon)
         self.notFoundDevicesWdg = QtWidgets.QWidget(MainWindow)
         self.notFoundDevicesWdg.setObjectName("notFoundDevicesWdg")
         self.darkBG = QtWidgets.QFrame(self.notFoundDevicesWdg)
@@ -32,7 +36,7 @@ class Ui_MainWindow(object):
         self.darkBG.setFrameShadow(QtWidgets.QFrame.Raised)
         self.darkBG.setObjectName("darkBG")
         self.scanAgainPB = QtWidgets.QPushButton(self.darkBG)
-        self.scanAgainPB.setGeometry(QtCore.QRect(80, 90, 251, 61))
+        self.scanAgainPB.setGeometry(QtCore.QRect(80, 100, 251, 61))
         self.scanAgainPB.setStyleSheet("QPushButton {\n"
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "    color: rgb(200, 200, 200);\n"
@@ -47,6 +51,7 @@ class Ui_MainWindow(object):
 "    border-radius: 30px;\n"
 "    text-align: center;\n"
 "}")
+        self.scanAgainPB.setAutoDefault(False)
         self.scanAgainPB.setObjectName("scanAgainPB")
         self.notFoundLb = QtWidgets.QLabel(self.darkBG)
         self.notFoundLb.setGeometry(QtCore.QRect(10, 50, 401, 41))
@@ -63,9 +68,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AlphaCopy"))
         self.scanAgainPB.setText(_translate("MainWindow", "Scan Again"))
-        self.notFoundLb.setText(_translate("MainWindow", "Devices Not Found"))
+        self.scanAgainPB.setShortcut(_translate("MainWindow", "Return"))
+        self.notFoundLb.setText(_translate("MainWindow", "<strong>DEVICES NOT FOUND"))
 
 
 if __name__ == "__main__":

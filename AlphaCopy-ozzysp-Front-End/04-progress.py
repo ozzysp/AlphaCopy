@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         self.darkBG.setFrameShadow(QtWidgets.QFrame.Raised)
         self.darkBG.setObjectName("darkBG")
         self.copyProgrB = QtWidgets.QProgressBar(self.darkBG)
-        self.copyProgrB.setGeometry(QtCore.QRect(20, 110, 381, 71))
+        self.copyProgrB.setGeometry(QtCore.QRect(20, 90, 381, 71))
         self.copyProgrB.setStyleSheet("QProgressBar {\n"
 "    background-color: rgb(100, 130, 200);\n"
 "    color: rgb(230, 230, 230);\n"
@@ -45,10 +45,10 @@ class Ui_MainWindow(object):
 "    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "}")
         self.copyProgrB.setMinimum(0)
-        self.copyProgrB.setProperty("value", 93)
+        self.copyProgrB.setProperty("value", 54)
         self.copyProgrB.setObjectName("copyProgrB")
         self.copyingFileLb = QtWidgets.QLabel(self.darkBG)
-        self.copyingFileLb.setGeometry(QtCore.QRect(10, 70, 401, 41))
+        self.copyingFileLb.setGeometry(QtCore.QRect(10, 40, 401, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.copyingFileLb.setFont(font)
@@ -62,8 +62,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.copyingFileLb.setText(_translate("MainWindow", "Copying Files..."))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AlphaCopy"))
+        self.copyingFileLb.setText(_translate("MainWindow", "<strong>COPYING FILES..."))
 
 
 if __name__ == "__main__":

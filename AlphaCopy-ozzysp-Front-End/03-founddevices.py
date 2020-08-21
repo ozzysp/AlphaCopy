@@ -8,18 +8,22 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(440, 280)
+class Ui_AlphaCopy(object):
+    def setupUi(self, AlphaCopy):
+        AlphaCopy.setObjectName("AlphaCopy")
+        AlphaCopy.resize(440, 280)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
-        MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(440, 280))
-        MainWindow.setMaximumSize(QtCore.QSize(440, 280))
-        self.foundDevicesWdg = QtWidgets.QWidget(MainWindow)
+        sizePolicy.setHeightForWidth(AlphaCopy.sizePolicy().hasHeightForWidth())
+        AlphaCopy.setSizePolicy(sizePolicy)
+        AlphaCopy.setMinimumSize(QtCore.QSize(440, 280))
+        AlphaCopy.setMaximumSize(QtCore.QSize(440, 280))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("alphaletter.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("alphaletter.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        AlphaCopy.setWindowIcon(icon)
+        self.foundDevicesWdg = QtWidgets.QWidget(AlphaCopy)
         self.foundDevicesWdg.setObjectName("foundDevicesWdg")
         self.darkBG = QtWidgets.QFrame(self.foundDevicesWdg)
         self.darkBG.setGeometry(QtCore.QRect(10, 10, 420, 260))
@@ -33,7 +37,7 @@ class Ui_MainWindow(object):
         self.darkBG.setObjectName("darkBG")
         self.diskHDDimg = QtWidgets.QFrame(self.darkBG)
         self.diskHDDimg.setGeometry(QtCore.QRect(260, 59, 120, 71))
-        self.diskHDDimg.setStyleSheet("image: url(:/hddicon/Icons/hdd_usb.png);")
+        self.diskHDDimg.setStyleSheet("image: url(:/hdd/Icons/hdd.qrc);")
         self.diskHDDimg.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.diskHDDimg.setFrameShadow(QtWidgets.QFrame.Raised)
         self.diskHDDimg.setObjectName("diskHDDimg")
@@ -47,7 +51,7 @@ class Ui_MainWindow(object):
         self.arrowLb.setObjectName("arrowLb")
         self.cardSDImg = QtWidgets.QFrame(self.darkBG)
         self.cardSDImg.setGeometry(QtCore.QRect(40, 50, 120, 81))
-        self.cardSDImg.setStyleSheet("image: url(:/sdcardicon/Icons/Sycamoreent-Storage-Sd5.png);")
+        self.cardSDImg.setStyleSheet("image: url(:/sd/Icons/sd.qrc);")
         self.cardSDImg.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.cardSDImg.setFrameShadow(QtWidgets.QFrame.Raised)
         self.cardSDImg.setObjectName("cardSDImg")
@@ -69,7 +73,7 @@ class Ui_MainWindow(object):
 "}")
         self.makeCopyPB.setObjectName("makeCopyPB")
         self.foundDevicesLb = QtWidgets.QLabel(self.darkBG)
-        self.foundDevicesLb.setGeometry(QtCore.QRect(-2, 9, 421, 31))
+        self.foundDevicesLb.setGeometry(QtCore.QRect(-2, 20, 421, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.foundDevicesLb.setFont(font)
@@ -104,28 +108,29 @@ class Ui_MainWindow(object):
         self.hdLE.setText("")
         self.hdLE.setAlignment(QtCore.Qt.AlignCenter)
         self.hdLE.setObjectName("hdLE")
-        MainWindow.setCentralWidget(self.foundDevicesWdg)
+        AlphaCopy.setCentralWidget(self.foundDevicesWdg)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(AlphaCopy)
+        QtCore.QMetaObject.connectSlotsByName(AlphaCopy)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, AlphaCopy):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.arrowLb.setText(_translate("MainWindow", ">"))
-        self.makeCopyPB.setText(_translate("MainWindow", "Make Copy"))
-        self.foundDevicesLb.setText(_translate("MainWindow", "Found 2 Devices"))
-        self.sdLE.setPlaceholderText(_translate("MainWindow", "SD Label"))
-        self.hdLE.setPlaceholderText(_translate("MainWindow", "HDD Label"))
+        AlphaCopy.setWindowTitle(_translate("AlphaCopy", "AlphaCopy"))
+        self.arrowLb.setText(_translate("AlphaCopy", ">"))
+        self.makeCopyPB.setText(_translate("AlphaCopy", "Make Copy"))
+        self.makeCopyPB.setShortcut(_translate("AlphaCopy", "Return"))
+        self.foundDevicesLb.setText(_translate("AlphaCopy", "<strong>FOUND DEVICES"))
+        self.sdLE.setPlaceholderText(_translate("AlphaCopy", "SD Label"))
+        self.hdLE.setPlaceholderText(_translate("AlphaCopy", "HDD Label"))
 
 import devices
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    AlphaCopy = QtWidgets.QMainWindow()
+    ui = Ui_AlphaCopy()
+    ui.setupUi(AlphaCopy)
+    AlphaCopy.show()
     sys.exit(app.exec_())
 

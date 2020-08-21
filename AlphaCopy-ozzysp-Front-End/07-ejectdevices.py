@@ -55,8 +55,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AlphaCopy"))
         self.ejectPB.setText(_translate("MainWindow", "Eject Devices"))
+        self.ejectPB.setShortcut(_translate("MainWindow", "Return"))
 
 
 if __name__ == "__main__":

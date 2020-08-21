@@ -19,6 +19,11 @@ class Ui_GreettingScreen(object):
         GreettingScreen.setSizePolicy(sizePolicy)
         GreettingScreen.setMinimumSize(QtCore.QSize(440, 280))
         GreettingScreen.setMaximumSize(QtCore.QSize(440, 280))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("alphaletter.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("alphaletter.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon.addPixmap(QtGui.QPixmap("alphaletter.png"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        GreettingScreen.setWindowIcon(icon)
         self.splashWdg = QtWidgets.QWidget(GreettingScreen)
         self.splashWdg.setObjectName("splashWdg")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.splashWdg)
@@ -35,7 +40,7 @@ class Ui_GreettingScreen(object):
         self.darkBG.setFrameShadow(QtWidgets.QFrame.Raised)
         self.darkBG.setObjectName("darkBG")
         self.appTitle = QtWidgets.QLabel(self.darkBG)
-        self.appTitle.setGeometry(QtCore.QRect(0, 40, 421, 61))
+        self.appTitle.setGeometry(QtCore.QRect(0, 10, 421, 61))
         font = QtGui.QFont()
         font.setFamily("Laksaman")
         font.setPointSize(30)
@@ -44,7 +49,7 @@ class Ui_GreettingScreen(object):
         self.appTitle.setAlignment(QtCore.Qt.AlignCenter)
         self.appTitle.setObjectName("appTitle")
         self.openSourceLb = QtWidgets.QLabel(self.darkBG)
-        self.openSourceLb.setGeometry(QtCore.QRect(0, 100, 421, 21))
+        self.openSourceLb.setGeometry(QtCore.QRect(0, 70, 421, 21))
         font = QtGui.QFont()
         font.setFamily("Laksaman")
         font.setPointSize(10)
@@ -53,7 +58,7 @@ class Ui_GreettingScreen(object):
         self.openSourceLb.setAlignment(QtCore.Qt.AlignCenter)
         self.openSourceLb.setObjectName("openSourceLb")
         self.devicesProgB = QtWidgets.QProgressBar(self.darkBG)
-        self.devicesProgB.setGeometry(QtCore.QRect(30, 140, 361, 23))
+        self.devicesProgB.setGeometry(QtCore.QRect(30, 200, 361, 23))
         self.devicesProgB.setStyleSheet("QProgressBar {\n"
 "    background-color: rgb(100, 130, 200);\n"
 "    color: rgb(230, 230, 230);\n"
@@ -68,7 +73,7 @@ class Ui_GreettingScreen(object):
         self.devicesProgB.setProperty("value", 36)
         self.devicesProgB.setObjectName("devicesProgB")
         self.loadingDevicesLb = QtWidgets.QLabel(self.darkBG)
-        self.loadingDevicesLb.setGeometry(QtCore.QRect(0, 170, 421, 21))
+        self.loadingDevicesLb.setGeometry(QtCore.QRect(0, 230, 421, 21))
         font = QtGui.QFont()
         font.setFamily("DejaVu Sans")
         font.setPointSize(10)
@@ -76,6 +81,11 @@ class Ui_GreettingScreen(object):
         self.loadingDevicesLb.setStyleSheet("color: rgb(33, 188, 162);")
         self.loadingDevicesLb.setAlignment(QtCore.Qt.AlignCenter)
         self.loadingDevicesLb.setObjectName("loadingDevicesLb")
+        self.label = QtWidgets.QLabel(self.darkBG)
+        self.label.setGeometry(QtCore.QRect(110, 100, 191, 81))
+        self.label.setStyleSheet("image: url(:/logo/alphaletter.png);")
+        self.label.setText("")
+        self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.darkBG)
         GreettingScreen.setCentralWidget(self.splashWdg)
 
@@ -84,10 +94,12 @@ class Ui_GreettingScreen(object):
 
     def retranslateUi(self, GreettingScreen):
         _translate = QtCore.QCoreApplication.translate
-        GreettingScreen.setWindowTitle(_translate("GreettingScreen", "MainWindow"))
+        GreettingScreen.setWindowTitle(_translate("GreettingScreen", "AlphaCopy"))
         self.appTitle.setText(_translate("GreettingScreen", "<strong>Alpha</strong>Copy"))
         self.openSourceLb.setText(_translate("GreettingScreen", "<strong>OPEN SOURCE</strong> PROJECT"))
         self.loadingDevicesLb.setText(_translate("GreettingScreen", "<strong>LOADING</strong> DEVICES..."))
+
+import alphaletter
 
 
 if __name__ == "__main__":

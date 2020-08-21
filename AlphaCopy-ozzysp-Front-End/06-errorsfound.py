@@ -49,7 +49,7 @@ class Ui_MainWindow(object):
 "}")
         self.errorDonePB.setObjectName("errorDonePB")
         self.errorsFoundLb = QtWidgets.QLabel(self.darkBG)
-        self.errorsFoundLb.setGeometry(QtCore.QRect(10, 60, 401, 41))
+        self.errorsFoundLb.setGeometry(QtCore.QRect(10, 50, 401, 41))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.errorsFoundLb.setFont(font)
@@ -63,9 +63,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "AlphaCopy"))
         self.errorDonePB.setText(_translate("MainWindow", "Done!"))
-        self.errorsFoundLb.setText(_translate("MainWindow", "Errors found!"))
+        self.errorDonePB.setShortcut(_translate("MainWindow", "Return"))
+        self.errorsFoundLb.setText(_translate("MainWindow", "<strong>ERRORS FOUND"))
 
 
 if __name__ == "__main__":

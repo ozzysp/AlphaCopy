@@ -1,8 +1,0 @@
-<RCC>
-  <qresource prefix="sd">
-    <file>Icons/sd.qrc</file>
-  </qresource>
-  <qresource prefix="hdd">
-    <file>Icons/hdd.qrc</file>
-  </qresource>
-</RCC>

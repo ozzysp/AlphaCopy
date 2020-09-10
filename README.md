@@ -37,6 +37,8 @@ $ source .venv/bin/activate
 - Install in editable mode with development dependencies.
 ```
 $ pip install -e . -r requirements-dev.txt
+$ pip install PyQt5
+$ pip install PySide2
 ```
 
 

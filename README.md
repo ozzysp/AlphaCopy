@@ -29,16 +29,21 @@ $ git remote add fork https://github.com/{username}/AlphaCopy
 ```
 
 - Create and activate a virtualenv.
+### Linux/Mac
 ```
 $ python3 -m venv .venv
 $ source .venv/bin/activate
+```
+### Windows
+```
+$ pip3 install virtualenv
+$ virtualenv {virtualenv-name}
+$ {virtualenv-name}\Scripts\activate
 ```
 
 - Install in editable mode with development dependencies.
 ```
 $ pip install -e . -r requirements-dev.txt
-$ pip install PyQt5
-$ pip install PySide2
 ```
 
 

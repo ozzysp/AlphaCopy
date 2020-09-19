@@ -1,4 +1,5 @@
-def copy (file_from: str, file_to: str):
-	with open(file_from) as f_read:
-		with open(file_to, "w") as f_write:
-			f_write.write(f_read.read())
+from shutil import copy2
+
+def copy_file(src: str, dst: str):
+	"""Copies single file from src to dst"""
+	copy2(src, dst)

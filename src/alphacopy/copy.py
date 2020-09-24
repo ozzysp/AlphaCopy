@@ -10,7 +10,10 @@ def copy_file(src: str, dst: str):
     destin.close()
 
 
-def check_disks(src, dst):
+def check_disks(src: str, dst: str) -> bool:
+    """
+    Checks whether filesystem on "dst" has enough free space for "src" files
+    """
     src_disk_usage = disk_usage(src)[1]
     destinaton_disk_free = disk_usage(dst)[2]
     return src_disk_usage <= destinaton_disk_free

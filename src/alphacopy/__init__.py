@@ -1,1 +1,1 @@
-from .copy import copy_file
+from .copy import copy_file, check_disks  # noqa: F401

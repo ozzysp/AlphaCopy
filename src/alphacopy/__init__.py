@@ -1,1 +1,1 @@
-from .copy import copy_file
+from .copy import copy_file  # noqa: F401

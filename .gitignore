@@ -132,4 +132,5 @@ dmypy.json
 # Temporary files
 *.swp
 
+# Accidentaly created folder in PyCharm
 .idea

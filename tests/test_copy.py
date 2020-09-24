@@ -2,7 +2,6 @@ import os
 import alphacopy
 import filecmp
 
-
 def test_copy_read():
 	src = "tests/helloworld"
 	dst = "HiPeople"

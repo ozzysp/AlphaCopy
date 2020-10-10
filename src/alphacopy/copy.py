@@ -4,6 +4,7 @@ from shutil import copy2, disk_usage
 import sys
 import usb.core
 
+
 def copy_file(src: str, dst: str):
     """Copies single file from src to dst"""
     copy2(src, dst)
@@ -29,3 +30,17 @@ def scan_disks():
     # loop through devices, printing vendor and product ids in decimal and hex
     for cfg in dev:
         sys.stdout.write('Hexadecimal VendorID=' + hex(cfg.idVendor) + ' & ProductID=' + hex(cfg.idProduct) + '\n\n')
+
+
+def external_disks(src: str = '/media/pi/'):
+    """
+    Find directories that are mounted on the given folder
+    Raises a ValueError if the given folder doesn't exists
+    Raises a ValueError if the given folder is, actually, a file
+    src -> str
+        The given folder in which this function should scan
+    returns: list[str]
+        Each element in the list is a string with the full path of the folder
+        A empy list means that no folder was found
+    """
+    return

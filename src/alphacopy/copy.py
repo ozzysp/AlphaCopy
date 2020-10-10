@@ -8,9 +8,8 @@ import shutil
 def copy_file(src: str, dst: str):
     """Copies single file from src to dst"""
     shutil.copy2(src, dst)
-    destin = open(dst, "a")
-    os.fsync(destin)
-    destin.close()
+    with open(dst, 'a') as f:
+        os.fsync(f)
 
 
 def check_disks(src: str, dst: str) -> bool:

@@ -22,16 +22,6 @@ def check_disks(src: str, dst: str) -> bool:
     return src_disk_usage <= destinaton_disk_free
 
 
-def scan_disks():
-    """
-    Find USB devices
-    """
-    dev = usb.core.find(find_all=True)
-    # loop through devices, printing vendor and product ids in decimal and hex
-    for cfg in dev:
-        sys.stdout.write('Hexadecimal VendorID=' + hex(cfg.idVendor) + ' & ProductID=' + hex(cfg.idProduct) + '\n\n')
-
-
 def external_disks(src: str = '/media/pi/'):
     """
     Find directories that are mounted on the given folder

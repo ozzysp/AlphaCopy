@@ -30,6 +30,6 @@ def external_disks(src: str = '/media/pi/'):
         The given folder in which this function should scan
     returns: list[str]
         Each element in the list is a string with the full path of the folder
-        A empy list means that no folder was found
+        A empty list means that no folder was found
     """
     return

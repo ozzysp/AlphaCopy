@@ -119,6 +119,12 @@ def eject_usb():
 # Call class
 devices = Devices()
 
+
+
+
+
+# **** Old code for future use ****
+
 # def copy_file(src: str, dst: str):
 #     """Copies single file from src to dst"""
 #     shutil.copy2(src, dst)

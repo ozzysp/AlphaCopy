@@ -7,7 +7,7 @@ with open('README.md') as f:
 setup(
     name='AlphaCopy',
     version='0.0.0',
-    license='MIT',
+    license='GNU General Public License v3.0',
     description='A Raspberry Pi backup application with GUI',
     long_description=long_description,
     long_description_content_type='text/markdown',

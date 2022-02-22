@@ -374,6 +374,8 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 .idea/
+.idea
+
 
 
 # Sonarlint plugin

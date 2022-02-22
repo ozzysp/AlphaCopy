@@ -8,7 +8,7 @@ from datetime import datetime
 from pathlib import Path
 from humanize import naturalsize
 
-VOLUMES_PATH = '/System/Volumes/Data/Volumes'
+VOLUMES_PATH = '/media/pi/'
 
 
 # This class defines devices functions and charateristics
@@ -68,8 +68,8 @@ class Devices:
         def progress_bar_be():
             try:
                 while True:
-                    file_copy = (sum([f.stat().st_size for f in Path('/Users/ozz/Desktop/Copied_Files').glob("**/*")]))
-                    file_origin = (sum([f.stat().st_size for f in Path('/Volumes/Mojave HD Ext/Users/ozzy/Downloads').glob("**/*")]))
+                    file_copy = (sum([f.stat().st_size for f in Path('/media/pi/').glob("**/*")]))
+                    file_origin = (sum([f.stat().st_size for f in Path('/media/pi/').glob("**/*")]))
                     if file_origin == file_copy:
                         break
             except FileNotFoundError:
@@ -77,8 +77,8 @@ class Devices:
 
         # This function checks integrity of copied files
         def check_hashes(self):
-            directoryin = '/Volumes/CatalinaPatcher/Library'
-            directoryout = '/Volumes/Mojave HD Ext/Users/ozzy/Desktop/Library'
+            directoryin = '/media/pi/'
+            directoryout = '/media/pi/'
             md5hashin = dirhash(directoryin, 'md5')
             md5hashout = dirhash(directoryout, 'md5')
             if md5hashin == md5hashout:

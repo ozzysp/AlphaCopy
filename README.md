@@ -73,3 +73,5 @@ Run the basic test suite with pytest.
 ```
 $ pytest
 ```
+
+# Thank you for your contribution!

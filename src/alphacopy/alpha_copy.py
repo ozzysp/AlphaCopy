@@ -69,7 +69,7 @@ class Devices:
             try:
                 while True:
                     file_copy = (sum([f.stat().st_size for f in Path('/media/pi/').glob("**/*")]))
-                    file_origin = (sum([f.stat().st_size for f in Path('/media/pi/').glob("**/*")]))
+                    file_origin = (sum([f.stat().st_size for f in Path('/media/pi/new').glob("**/*")]))
                     if file_origin == file_copy:
                         break
             except FileNotFoundError:

@@ -1,6 +1,7 @@
-< p align="center">
-    < img src/assets/to_readme/ezgif.com-git-maker.gif>
-</ p >
+
+
+https://user-images.githubusercontent.com/48163195/155403746-c988fd71-e4e8-4c2f-a106-5e9c44d468c7.mp4
+
 
 
 # AlphaCopy

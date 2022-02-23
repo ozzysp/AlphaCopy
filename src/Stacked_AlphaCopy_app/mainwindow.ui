@@ -35,7 +35,7 @@ border-radius: 10px;</string>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="initPage">
        <widget class="QLabel" name="appTitle">
@@ -275,7 +275,7 @@ QPushButton::pressed {
        <widget class="QLineEdit" name="sdLE">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>60</x>
           <y>130</y>
           <width>113</width>
           <height>27</height>
@@ -340,7 +340,7 @@ QPushButton::pressed {
         <property name="geometry">
          <rect>
           <x>280</x>
-          <y>140</y>
+          <y>130</y>
           <width>113</width>
           <height>27</height>
          </rect>
@@ -390,7 +390,7 @@ QPushButton::pressed {
           <x>290</x>
           <y>60</y>
           <width>91</width>
-          <height>71</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="text">

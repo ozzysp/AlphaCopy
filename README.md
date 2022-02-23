@@ -40,7 +40,7 @@ $ {virtualenv-name}\Scripts\activate
 
 - Install in editable mode with development dependencies.
 ```
-$ pip install -e . -r requirements-dev.txt
+$ pip install -r requirements.txt
 ```
 
 

@@ -3,6 +3,7 @@
 import os
 import shutil
 import psutil
+import stat
 from checksumdir import dirhash
 from datetime import datetime
 from pathlib import Path
@@ -11,7 +12,7 @@ from humanize import naturalsize
 VOLUMES_PATH = '/media/pi/'
 
 
-# This class defines devices functions and charateristics
+# This class defines devices functions and attributes
 class Devices:
     SIZE = 0
     REM_SIZE = 0
@@ -64,29 +65,29 @@ class Devices:
         with open(dst, 'a') as f:
             os.fsync(f)
 
-# This function show progress bar bytes
+        # This function show progress bar bytes
         def progress_bar_be():
             try:
                 while True:
-                    file_copy = (sum([f.stat().st_size for f in Path('/media/pi/').glob("**/*")]))
-                    file_origin = (sum([f.stat().st_size for f in Path('/media/pi/new').glob("**/*")]))
+                    file_copy = (sum([f.stat().st_size for found in Path('/media/pi/').glob("**/*")]))
+                    file_origin = (sum([f.stat().st_size for found in Path('/media/pi/new').glob("**/*")]))
                     if file_origin == file_copy:
                         break
             except FileNotFoundError:
                 pass
 
-# This function show progress bar percentage
+        # This function show progress bar percentage
         def progress_bar_pe():
             try:
                 while True:
-                    file_copy = (sum([f.stat().st_size for f in Path('/media/pi/').glob("**/*")]))
-                    file_origin = (sum([f.stat().st_size for f in Path('/media/pi/new').glob("**/*")]))
+                    file_copy = (sum([f.stat().st_size for found in Path('/media/pi/').glob("**/*")]))
+                    file_origin = (sum([f.stat().st_size for found in Path('/media/pi/new').glob("**/*")]))
                     if file_origin == file_copy:
                         break
             except FileNotFoundError:
                 pass
 
-# This function checks integrity of copied files
+        # This function checks integrity of copied files
         def check_hashes(self):
             directoryin = '/media/pi/'
             directoryout = '/media/pi/'
@@ -97,7 +98,7 @@ class Devices:
             else:
                 print('Error while copying')
 
-# This function eject all devices on mount point
+        # This function eject all devices on mount point
         def eject_usb(self):
             command = "sudo udevadm info -q path -p /devices/pci0000:00/0000:00:1d.0/usb1/1-3/1-3.2/1-3.2.2/1-3.2.2.2/1-3.2.2.2:1.0/"
             popen = os.popen(command)

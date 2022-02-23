@@ -1,5 +1,5 @@
 < p align="center">
-    < img src=src/assets/to_readme/ezgif.com-git-maker.gif>
+    < img src - src/assets/to_readme/ezgif.com-git-maker.gif>
 </ p >
 
 

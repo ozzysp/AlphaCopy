@@ -1,14 +1,14 @@
 # AlphaCopy
  
-### A Python/GUI Open Source aplication with free participation to turn a Raspberry Pi on to a Backup Machine from SD Cards to external HD's from USB ports. The idea is to create this application to run with Debian/Linux OS - Raspberry Pi OS and be assembly on a Raspberry Pi with 3,5" LCD sreen with touchscreen.  
+### A Python/GUI Open Source application with free participation to turn a Raspberry Pi on to a Backup Machine from SD Cards to external HDD's from USB ports. The idea is to create this application to run with Debian/Linux OS - Raspberry Pi OS and be assembled on a Raspberry Pi with 3,5" LCD display with touchscreen.  
 
 
 # Contributing
-Bellow information is intented for developing of the package
+Bellow information is intended for the development of the package
 
 
 ## Telegram group
-Join our [telegram group](https://t.me/joinchat/K-lrk09EB8N37ygHCxT_Vg)
+Join our [Telegram group](https://t.me/joinchat/K-lrk09EB8N37ygHCxT_Vg)
 
 
 ## First time setup

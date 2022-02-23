@@ -1,4 +1,4 @@
-< p allign="center">
+< p align="center">
     < img width="480" height="280" src=src/assets/to_readme/ezgif.com-git-maker.gif>
 </ p >
 

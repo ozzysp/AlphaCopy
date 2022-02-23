@@ -1,3 +1,8 @@
+< p allign="center">
+    < img width="480" src=src/assets/to_readme/ezgif.com-git-maker.gif>
+</ p >
+
+
 # AlphaCopy
  
 ### A Python/GUI Open Source application with free participation to turn a Raspberry Pi on to a Backup Machine from SD Cards to external HDD's from USB ports. The idea is to create this application to run with Debian/Linux OS - Raspberry Pi OS and be assembled on a Raspberry Pi with 3,5" LCD display with touchscreen.  

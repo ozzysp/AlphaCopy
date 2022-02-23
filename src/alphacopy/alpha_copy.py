@@ -75,7 +75,18 @@ class Devices:
             except FileNotFoundError:
                 pass
 
-        # This function checks integrity of copied files
+# This function show progress bar percentage
+        def progress_bar_pe():
+            try:
+                while True:
+                    file_copy = (sum([f.stat().st_size for f in Path('/media/pi/').glob("**/*")]))
+                    file_origin = (sum([f.stat().st_size for f in Path('/media/pi/new').glob("**/*")]))
+                    if file_origin == file_copy:
+                        break
+            except FileNotFoundError:
+                pass
+
+# This function checks integrity of copied files
         def check_hashes(self):
             directoryin = '/media/pi/'
             directoryout = '/media/pi/'

@@ -1,6 +1,5 @@
 from setuptools import setup
 
-
 with open('README.md') as f:
     long_description = f.read()
 
@@ -20,5 +19,5 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8'
     ],
-    platforms='Linux',
+    platforms='Linux'
 )

@@ -1,0 +1,6 @@
+{
+    "files": ["alphacopy/alpha_copy.py", "Stacked_AlphaCopy_app/alphaletter.qrc",
+              "Stacked_AlphaCopy_app/logoalpha.qrc", "Stacked_AlphaCopy_app/logo.qrc",
+              "Stacked_AlphaCopy_app/mainwindow.ui", "Stacked_AlphaCopy_app/mainwindow.py",
+              "main.py"]
+}

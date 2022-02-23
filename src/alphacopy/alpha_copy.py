@@ -23,7 +23,7 @@ class Devices:
         directories = os.listdir(VOLUMES_PATH)
         return directories
 
-    # This function returns used space in choosed hd
+    # This function returns used space in choosed hdd
     @staticmethod
     def used_disk():
         used_disk = psutil.disk_usage(VOLUMES_PATH)
@@ -32,7 +32,7 @@ class Devices:
         natural_bytes = (naturalsize(used_bytes))
         return natural_bytes
 
-    # This function display free space in chosen hd
+    # This function display free space in chosen hdd
     @staticmethod
     def free_disk():
         free_disk = psutil.disk_usage(VOLUMES_PATH)
@@ -41,13 +41,13 @@ class Devices:
         info_free = (free_bytes + ' GB Free')
         return info_free
 
-    # This function select each hd
+    # This function select each hdd
     def select_from(self):
         # found_volumes = directories
         # return found_volumes
         pass
 
-    # This function make new directory in target hd
+    # This function make new directory in target hdd
     @staticmethod
     def make_new_dir():
         now = datetime.now()
@@ -57,7 +57,7 @@ class Devices:
         new_folder = dt_string
         os.mkdir(new_folder)
 
-    # This function copy all content from original hd to destination hd
+    # This function copy all content from original hdd to destination hdd
     @staticmethod
     def copy_files(src: str, dst: str):
         shutil.copy2(src, dst)

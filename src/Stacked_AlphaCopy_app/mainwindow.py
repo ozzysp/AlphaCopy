@@ -2,6 +2,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QSize
+from alphacopy.alpha_copy import Devices
 
 
 class MainWindow(QMainWindow):
@@ -12,6 +13,13 @@ class MainWindow(QMainWindow):
         self.hddIconLb.setPixmap(hddIcon.scaled(QSize(64, 64)))
         sdIcon = QPixmap('Stacked_AlphaCopy_app/Sycamoreent-Storage-Sd.png')
         self.sdIconLb.setPixmap(sdIcon.scaled(QSize(64, 64)))
+        self.scan()
 
     def scan(self):
-        self.stackedWidget.setCurrentIndex(2) # Just for testing
+        disks = Devices.list_disks()
+        if len(disks) > 0:
+            self.stackedWidget.setCurrentIndex(2)
+        else:
+            self.stackedWidget.setCurrentIndex(1)
+
+

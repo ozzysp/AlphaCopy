@@ -21,7 +21,11 @@ class Devices:
     # This function list all volumes mounted in system
     @staticmethod
     def list_disks():
-        directories = os.listdir(VOLUMES_PATH)
+        directories = []
+        try:
+            directories = os.listdir(VOLUMES_PATH)
+        except FileNotFoundError:
+            pass
         return directories
 
     # This function returns used space in choosed hdd

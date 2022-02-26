@@ -47,7 +47,7 @@ border-radius: 10px;</string>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="initPage">
        <widget class="QLabel" name="appTitle">
@@ -75,7 +75,7 @@ border-radius: 10px;</string>
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="logoLabel">
         <property name="geometry">
          <rect>
           <x>130</x>
@@ -85,10 +85,13 @@ border-radius: 10px;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/alphaletter/alphaletter.png);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="loadingDevicesLb">

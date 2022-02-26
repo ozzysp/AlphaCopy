@@ -3,13 +3,10 @@
 import os
 import shutil
 import psutil
-import stat
 from checksumdir import dirhash
 from datetime import datetime
 from pathlib import Path
 from humanize import naturalsize
-
-VOLUMES_PATH = '/media/pi/'
 
 
 # This class defines devices functions and attributes
@@ -17,10 +14,10 @@ class Devices:
     SIZE = 0
     REM_SIZE = 0
     DATE = '00/00/0000'
+    VOLUMES_PATH = '/media/nicolas/'
 
     # This function list all volumes mounted in system
-    @staticmethod
-    def list_disks():
+    def list_disks(self):
         directories = []
         try:
             directories = os.listdir(VOLUMES_PATH)
@@ -29,7 +26,6 @@ class Devices:
         return directories
 
     # This function returns used space in choosed hdd
-    @staticmethod
     def used_disk():
         used_disk = psutil.disk_usage(VOLUMES_PATH)
         used_space = str(used_disk[1])
@@ -38,7 +34,6 @@ class Devices:
         return natural_bytes
 
     # This function display free space in chosen hdd
-    @staticmethod
     def free_disk():
         free_disk = psutil.disk_usage(VOLUMES_PATH)
         free_space = str(free_disk[2])
@@ -53,17 +48,34 @@ class Devices:
         pass
 
     # This function make new directory in target hdd
-    @staticmethod
     def make_new_dir():
         now = datetime.now()
         dt_string = now.strftime("%d_%m_%Y_%H:%M")
-        path = '/Users/ozz/Desktop'
+        path = '/'
         os.chdir(path)
         new_folder = dt_string
         os.mkdir(new_folder)
 
+    def disk_size(label):
+        total, used, free = shutil.disk_usage(VOLUMES_PATH + label)
+        return total // (2**30)
+
+    def list_files(path):
+        f = []
+        for (dirpath, dirnames, filenames) in os.walk(path):
+            f.extend(filenames)
+            break
+        return f
+
+    def copy_files2(src, dest):
+        files = Devices.list_files(src)
+
+        for file in files:
+            
+            
+
+
     # This function copy all content from original hdd to destination hdd
-    @staticmethod
     def copy_files(src: str, dst: str):
         shutil.copy2(src, dst)
         with open(dst, 'a') as f:

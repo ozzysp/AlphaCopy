@@ -32,10 +32,22 @@ border-radius: 10px;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="initPage">
        <widget class="QLabel" name="appTitle">
@@ -63,7 +75,7 @@ border-radius: 10px;</string>
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="logoLabel">
         <property name="geometry">
          <rect>
           <x>130</x>
@@ -73,10 +85,13 @@ border-radius: 10px;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/alphaletter/alphaletter.png);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
        <widget class="QLabel" name="loadingDevicesLb">
@@ -152,7 +167,7 @@ QProgressBar::chunk{
 }</string>
         </property>
         <property name="value">
-         <number>36</number>
+         <number>0</number>
         </property>
        </widget>
       </widget>
@@ -452,7 +467,10 @@ QProgressBar::chunk{
          <number>0</number>
         </property>
         <property name="value">
-         <number>54</number>
+         <number>0</number>
+        </property>
+        <property name="format">
+         <string>%p files</string>
         </property>
        </widget>
       </widget>
@@ -687,8 +705,59 @@ QPushButton::pressed {
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>makeCopyPB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>copy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>224</x>
+     <y>195</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>475</x>
+     <y>223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ejectPB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>return_to_main_page()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>225</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>479</x>
+     <y>189</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>DonePB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>done()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>480</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>scan()</slot>
+  <slot>copy()</slot>
+  <slot>done()</slot>
+  <slot>return_to_main_page()</slot>
  </slots>
 </ui>

@@ -466,11 +466,14 @@ QProgressBar::chunk{
         <property name="minimum">
          <number>0</number>
         </property>
+        <property name="maximum">
+         <number>8</number>
+        </property>
         <property name="value">
          <number>0</number>
         </property>
         <property name="format">
-         <string>%p files</string>
+         <string>%p%</string>
         </property>
        </widget>
       </widget>
@@ -725,7 +728,7 @@ QPushButton::pressed {
    <sender>ejectPB</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>return_to_main_page()</slot>
+   <slot>eject()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>225</x>
@@ -759,5 +762,6 @@ QPushButton::pressed {
   <slot>copy()</slot>
   <slot>done()</slot>
   <slot>return_to_main_page()</slot>
+  <slot>eject()</slot>
  </slots>
 </ui>

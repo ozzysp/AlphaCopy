@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.82.0, 2022-02-25T18:28:02. -->
+<!-- Written by QtCreator 6.82.0, 2022-02-25T21:33:31. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -220,14 +220,49 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/alpha_copy.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/alpha_copy.py</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{240bce9b-4923-4e73-8da6-07e013752a1a}</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/alpha_copy.py</value>
+    <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.6">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="Android.PostStartShellCmdListKey">
+     <value type="QString"></value>
+    </valuelist>
+    <valuelist type="QVariantList" key="Android.PreStartShellCmdListKey">
+     <value type="QString"></value>
+    </valuelist>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">0</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.AndroidRunConfiguration:/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/DevicesUtil.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/DevicesUtil.py</value>
+    <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.7">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/DevicesUtil.py (on %{Device:Name})2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration./home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/DevicesUtil.py</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/DevicesUtil.py</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy/DevicesUtil.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/nicolas/Documentos/Qt/AlphaCopy/src/alphacopy</value>
    </valuemap>
-   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">6</value>
+   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">8</value>
   </valuemap>
  </data>
  <data>

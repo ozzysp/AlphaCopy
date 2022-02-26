@@ -57,5 +57,6 @@ class MainWindow(QMainWindow):
     def done(self):
         self.stackedWidget.setCurrentIndex(6)
 
-    def return_to_main_page(self):
+    def eject(self):
+        self.devices.eject_disk(self.sd_label)
         self.stackedWidget.setCurrentIndex(0)

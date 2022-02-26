@@ -12,12 +12,12 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super(MainWindow, self).__init__()
-        uic.loadUi('Stacked_AlphaCopy_app/mainwindow.ui', self)
-        logo = QPixmap('Stacked_AlphaCopy_app/alphaletter.png')
+        uic.loadUi('screen_ui/mainwindow.ui', self)
+        logo = QPixmap('screen_ui/alphaletter.png')
         self.logoLabel.setPixmap(logo.scaled(QSize(110, 70)))
-        hddIcon = QPixmap('Stacked_AlphaCopy_app/usb-black.png')
+        hddIcon = QPixmap('screen_ui/usb-black.png')
         self.hddIconLb.setPixmap(hddIcon.scaled(QSize(64, 64)))
-        sdIcon = QPixmap('Stacked_AlphaCopy_app/Sycamoreent-Storage-Sd.png')
+        sdIcon = QPixmap('screen_ui/Sycamoreent-Storage-Sd.png')
         self.sdIconLb.setPixmap(sdIcon.scaled(QSize(64, 64)))
         self.scan()
 

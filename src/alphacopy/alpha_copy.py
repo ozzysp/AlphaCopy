@@ -93,11 +93,13 @@ class Devices:
                 pass
 
         # This function show progress bar percentage
+        @staticmethod
         def progress_bar_pe():
             try:
                 while True:
-                    file_copy = (sum([f.stat().st_size for found in Path('/media/pi/').glob("**/*")]))
-                    file_origin = (sum([f.stat().st_size for found in Path('/media/pi/new').glob("**/*")]))
+                    file_copy = (sum([f.stat().st_size for f in Path('/Users/ozz/Desktop/TESTE_COPIA').glob("**/*")]))
+                    file_origin = (sum([f.stat().st_size for f in Path('/Volumes').glob("**/*")]))
+                    print(file_copy)
                     if file_origin == file_copy:
                         break
             except FileNotFoundError:
@@ -146,6 +148,7 @@ def eject_usb():
 
 # Call class
 devices = Devices()
+
 
 
 

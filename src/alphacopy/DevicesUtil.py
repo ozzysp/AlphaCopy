@@ -1,6 +1,7 @@
 import os
 import shutil
 from PyQt5.QtCore import QObject, pyqtSignal
+import time
 
 
 class DevicesUtil(QObject):

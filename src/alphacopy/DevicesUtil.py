@@ -1,11 +1,11 @@
 import os
 import shutil
 from PyQt5.QtCore import QObject, pyqtSignal
+from datetime import datetime
 import time
 
 
 class DevicesUtil(QObject):
-    copying_started = pyqtSignal()
     file_copied = pyqtSignal()
     VOLUMES_PATH = ''
 
@@ -23,7 +23,7 @@ class DevicesUtil(QObject):
 
     def disk_size(self, label):
         total, used, free = shutil.disk_usage(self.VOLUMES_PATH + '/' + label)
-        return total // (2**30)
+        return total // (2 ** 30)
 
     def list_files(self, dir):
         files = os.listdir(dir)
@@ -31,7 +31,19 @@ class DevicesUtil(QObject):
 
     def copy_files(self, src, dest):
         files = self.list_files(src)
-        self.copying_started.emit()
+        dest = self.make_dir(dest)
         for file in files:
             shutil.copy(src + '/' + file, dest + '/' + file)
             self.file_copied.emit()
+
+    def make_dir(self, base_path):
+        now = datetime.now()
+        dt_string = now.strftime("%d_%m_%Y_%H:%M")
+        os.chdir(base_path)
+        new_folder = dt_string
+        os.mkdir(new_folder)
+        return base_path + '/' + new_folder
+
+    def eject_disk(self, label):
+        command = "umount " + self.VOLUMES_PATH + "/" + label
+        return os.system(command) == 0

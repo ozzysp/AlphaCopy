@@ -49,8 +49,8 @@ class MainWindow(QMainWindow):
 
     def copy(self):
         self.stackedWidget.setCurrentIndex(3)
-        sd_path = self.devices.VOLUMES_PATH + '/' + self.sd_label
-        hdd_path = self.devices.VOLUMES_PATH + '/' + self.hdd_label
+        sd_path = self.devices.volumes_path + '/' + self.sd_label
+        hdd_path = self.devices.volumes_path + '/' + self.hdd_label
         try:
             total_files = len(self.devices.list_files(sd_path))
         except Exception:

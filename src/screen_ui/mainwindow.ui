@@ -221,6 +221,30 @@ QPushButton::pressed {
          <bool>false</bool>
         </property>
        </widget>
+       <widget class="QLabel" name="notFoundDescriptionLb">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>100</y>
+          <width>331</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(237, 51, 59);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="foundDevs">
        <widget class="QLabel" name="foundDevicesLb">
@@ -272,6 +296,9 @@ QPushButton::pressed {
         </property>
        </widget>
        <widget class="QLineEdit" name="sdLE">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>60</x>
@@ -336,6 +363,9 @@ QPushButton::pressed {
         </property>
        </widget>
        <widget class="QLineEdit" name="hddLE">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>280</x>
@@ -753,6 +783,22 @@ QPushButton::pressed {
     <hint type="destinationlabel">
      <x>300</x>
      <y>331</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>errorDonePB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>done()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>250</x>
+     <y>150</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>224</x>
+     <y>540</y>
     </hint>
    </hints>
   </connection>

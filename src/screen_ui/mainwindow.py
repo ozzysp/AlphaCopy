@@ -18,13 +18,6 @@ class MainWindow(QMainWindow):
         hddIcon = QPixmap('assets/devices/usb-black.png')
         self.hddIconLb.setPixmap(hddIcon.scaled(QSize(64, 64)))
         sdIcon = QPixmap('assets/devices/Sycamoreent-Storage-Sd.png')
-
-        uic.loadUi('screen_ui/mainwindow.ui', self)
-        logo = QPixmap('assets/logos/alphaletter.png')
-        self.logoLabel.setPixmap(logo.scaled(QSize(110, 70)))
-        hddIcon = QPixmap('screen_ui/usb-black.png')
-        self.hddIconLb.setPixmap(hddIcon.scaled(QSize(64, 64)))
-        sdIcon = QPixmap('screen_ui/Sycamoreent-Storage-Sd.png')
         self.sdIconLb.setPixmap(sdIcon.scaled(QSize(64, 64)))
         self.stackedWidget.setCurrentIndex(0)
 
@@ -50,27 +43,30 @@ class MainWindow(QMainWindow):
             self.hddLE.setText(self.hdd_label)
             self.sdLE.setText(self.sd_label)
         else:
+            errorMessage = "A suitable SD card could not be found."
+            self.notFoundDescriptionLb.setText(errorMessage)
             self.stackedWidget.setCurrentIndex(1)
 
     def copy(self):
         self.stackedWidget.setCurrentIndex(3)
         sd_path = self.devices.VOLUMES_PATH + '/' + self.sd_label
         hdd_path = self.devices.VOLUMES_PATH + '/' + self.hdd_label
-        total_files = len(self.devices.list_files(sd_path))
+        try:
+            total_files = len(self.devices.list_files(sd_path))
+        except Exception:
+            self.stackedWidget.setCurrentIndex(5)
+            return
         self.copyProgrB.setMaximum(total_files)
 
         def incrementProgressBar():
             currentValue = self.copyProgrB.value()
             self.copyProgrB.setValue(currentValue + 1)
 
-        def copy_error():
-            print("error")
-            self.errorLb.setText("File not found.")
-            self.stackedWidget.setCurrentIndex(5)
-
         self.devices.file_copied.connect(incrementProgressBar)
-        self.devices.copy_files(sd_path, hdd_path)
-        self.devices.copy_error.connect(copy_error)
+        try:
+            self.devices.copy_files(sd_path, hdd_path)
+        except Exception:
+            self.stackedWidget.setCurrentIndex(5)
         self.stackedWidget.setCurrentIndex(4)
 
     def done(self):

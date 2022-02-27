@@ -1,6 +1,4 @@
 {
-    "files": [ "Stacked_AlphaCopy_app/alphaletter.qrc",
-              "Stacked_AlphaCopy_app/logoalpha.qrc", "Stacked_AlphaCopy_app/logo.qrc",
-              "Stacked_AlphaCopy_app/mainwindow.ui", "Stacked_AlphaCopy_app/mainwindow.py",
-              "main.py", "alphacopy/DevicesUtil.py"]
+    "files": ["screen_ui/mainwindow.ui", "screen_ui/mainwindow.py",
+              "main.py", "alphacopy/devicesutil.py"]
 }

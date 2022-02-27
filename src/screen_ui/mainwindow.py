@@ -2,7 +2,7 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QSize
-from alphacopy.DevicesUtil import DevicesUtil
+from alphacopy.devicesutil import DevicesUtil
 
 
 class MainWindow(QMainWindow):
@@ -13,13 +13,20 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         uic.loadUi('screen_ui/mainwindow.ui', self)
-        logo = QPixmap('screen_ui/alphaletter.png')
+        logo = QPixmap('assets/logos/alphaletter.png')
+        self.logoLabel.setPixmap(logo.scaled(QSize(110, 70)))
+        hddIcon = QPixmap('assets/devices/usb-black.png')
+        self.hddIconLb.setPixmap(hddIcon.scaled(QSize(64, 64)))
+        sdIcon = QPixmap('assets/devices/Sycamoreent-Storage-Sd.png')
+
+        uic.loadUi('screen_ui/mainwindow.ui', self)
+        logo = QPixmap('assets/logos/alphaletter.png')
         self.logoLabel.setPixmap(logo.scaled(QSize(110, 70)))
         hddIcon = QPixmap('screen_ui/usb-black.png')
         self.hddIconLb.setPixmap(hddIcon.scaled(QSize(64, 64)))
         sdIcon = QPixmap('screen_ui/Sycamoreent-Storage-Sd.png')
         self.sdIconLb.setPixmap(sdIcon.scaled(QSize(64, 64)))
-        self.scan()
+        self.stackedWidget.setCurrentIndex(0)
 
     def scan(self):
         disks = self.devices.list_disks()
@@ -30,14 +37,20 @@ class MainWindow(QMainWindow):
             self.stackedWidget.setCurrentIndex(1)
 
     def set_sd_hdd(self, disks):
+        sd_found = False
         for disk in disks:
             size = self.devices.disk_size(disk)
             if size < 65:
+                sd_found = True
                 self.sd_label = disk
             else:
                 self.hdd_label = disk
-        self.hddLE.setText(self.hdd_label)
-        self.sdLE.setText(self.sd_label)
+
+        if sd_found:
+            self.hddLE.setText(self.hdd_label)
+            self.sdLE.setText(self.sd_label)
+        else:
+            self.stackedWidget.setCurrentIndex(1)
 
     def copy(self):
         self.stackedWidget.setCurrentIndex(3)
@@ -50,8 +63,14 @@ class MainWindow(QMainWindow):
             currentValue = self.copyProgrB.value()
             self.copyProgrB.setValue(currentValue + 1)
 
+        def copy_error():
+            print("error")
+            self.errorLb.setText("File not found.")
+            self.stackedWidget.setCurrentIndex(5)
+
         self.devices.file_copied.connect(incrementProgressBar)
         self.devices.copy_files(sd_path, hdd_path)
+        self.devices.copy_error.connect(copy_error)
         self.stackedWidget.setCurrentIndex(4)
 
     def done(self):

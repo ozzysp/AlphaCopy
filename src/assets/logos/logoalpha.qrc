@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="alphaletter">
-    <file>usb-black.png</file>
-    <file>Sycamoreent-Storage-Sd.png</file>
-    <file>alphaletter.png</file>
-  </qresource>
-</RCC>

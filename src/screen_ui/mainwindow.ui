@@ -94,31 +94,6 @@ border-radius: 10px;</string>
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="loadingDevicesLb">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>230</y>
-          <width>421</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>DejaVu Sans</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(33, 188, 162);</string>
-        </property>
-        <property name="text">
-         <string>&lt;strong&gt;LOADING&lt;/strong&gt; DEVICES...</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
        <widget class="QLabel" name="openSourceLb">
         <property name="geometry">
          <rect>
@@ -144,30 +119,39 @@ border-radius: 10px;</string>
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QProgressBar" name="devicesProgB">
+       <widget class="QPushButton" name="startPB">
         <property name="geometry">
          <rect>
-          <x>50</x>
+          <x>100</x>
           <y>200</y>
-          <width>361</width>
-          <height>23</height>
+          <width>251</width>
+          <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QProgressBar {
-	background-color: rgb(100, 130, 200);
-	color: rgb(230, 230, 230);
+         <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));
+	color: rgb(200, 200, 200);
 	border-style: none;
-	border-radius: 10px;
+	border-radius: 30px;
 	text-align: center;
 }
-QProgressBar::chunk{
-	border-radius: 10px;
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));
+QPushButton::pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(222, 151, 255, 255), stop:1 rgba(54, 237, 216, 255));
+	color: rgb(200, 200, 200);
+	border-style: none;
+	border-radius: 30px;
+	text-align: center;
 }</string>
         </property>
-        <property name="value">
-         <number>0</number>
+        <property name="text">
+         <string>Start</string>
+        </property>
+        <property name="shortcut">
+         <string>Return</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
         </property>
        </widget>
       </widget>
@@ -753,6 +737,22 @@ QPushButton::pressed {
     <hint type="destinationlabel">
      <x>480</x>
      <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startPB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>scan()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>249</x>
+     <y>218</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>331</y>
     </hint>
    </hints>
   </connection>

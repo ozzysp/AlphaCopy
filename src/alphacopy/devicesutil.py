@@ -2,7 +2,6 @@ import os
 import shutil
 from PyQt5.QtCore import QObject, pyqtSignal
 from datetime import datetime
-import time
 
 
 class DevicesUtil(QObject):
@@ -30,8 +29,12 @@ class DevicesUtil(QObject):
         return files
 
     def copy_files(self, src, dest):
-        files = self.list_files(src)
-        dest = self.make_dir(dest)
+        try:
+            files = self.list_files(src)
+            dest = self.make_dir(dest)
+        except Exception as e:
+            raise e
+            return
         for file in files:
             shutil.copy(src + '/' + file, dest + '/' + file)
             self.file_copied.emit()

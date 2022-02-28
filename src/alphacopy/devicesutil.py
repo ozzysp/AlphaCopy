@@ -53,7 +53,7 @@ class DevicesUtil(QObject):
         dt_string = now.strftime("%d_%m_%Y_%H:%M")
         os.chdir(base_path)
         new_folder = dt_string
-        os.mkdir(new_folder)
+        os.mkdir(base_path + '/' + new_folder)
         return base_path + '/' + new_folder
 
     # Ejects disk by label (by @nicmorais)

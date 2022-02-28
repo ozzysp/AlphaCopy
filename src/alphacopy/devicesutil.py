@@ -15,6 +15,7 @@ class DevicesUtil(QObject):
         super(QObject, self).__init__()
         self.volumes_path = '/media/' + os.environ.get('USER')
 
+    # This function is used to get the list of all the volumes by @nicmorais
     def list_disks(self):
         directories = []
         try:
@@ -23,14 +24,17 @@ class DevicesUtil(QObject):
             pass
         return directories
 
+    # This function is used to get size in a volume by @nicmorais
     def disk_size(self, label):
         total, used, free = shutil.disk_usage(self.volumes_path + '/' + label)
         return total // (2 ** 30)
 
+    # This function is used to get the list files in volume by @nicmorais
     def list_files(self, dir):
         files = [str(item) for item in list(Path(dir).rglob("*"))]
         return files
 
+    # This function copies all files from one volume to another by @nicmorais
     def copy_files(self, files, dest):
         try:
             dest = self.make_dir(dest)

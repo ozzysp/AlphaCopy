@@ -4,6 +4,7 @@ import psutil
 from PyQt5.QtCore import QObject, pyqtSignal
 from datetime import datetime
 from humanize import naturalsize
+from pathlib import Path
 
 
 class DevicesUtil(QObject):
@@ -27,19 +28,23 @@ class DevicesUtil(QObject):
         return total // (2 ** 30)
 
     def list_files(self, dir):
-        files = os.listdir(dir)
+        files = [str(item) for item in list(Path(dir).rglob("*"))]
         return files
 
-    def copy_files(self, src, dest):
+    def copy_files(self, files, dest):
         try:
-            files = self.list_files(src)
             dest = self.make_dir(dest)
         except Exception as e:
             raise e
             return
         for file in files:
-            shutil.copy(src + '/' + file, dest + '/' + file)
-            self.file_copied.emit()
+            dest_path = dest + '/' + '/'.join(file.split('/')[4:])
+            path = Path(dest_path)
+            if Path(file).is_file():
+                shutil.copy2(file, dest_path)
+                self.file_copied.emit()
+            else:
+                path.mkdir(exist_ok=True)
 
     # Creates a new directory in the target disk with current date and hour
     # by @ozzysp, with later modifications by @nicmorais

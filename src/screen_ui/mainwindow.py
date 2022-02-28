@@ -65,10 +65,10 @@ class MainWindow(QMainWindow):
         files = self.devices.list_files(sd_path)
 
         self.devices.file_copied.connect(incrementProgressBar)
-        try:
-            self.devices.copy_files(files, hdd_path)
-        except Exception:
-            self.stackedWidget.setCurrentIndex(5)
+        #try:
+        self.devices.copy_files(files, hdd_path)
+        #except Exception:
+        self.stackedWidget.setCurrentIndex(5)
         self.stackedWidget.setCurrentIndex(4)
 
     def done(self):

@@ -47,7 +47,7 @@ border-radius: 10px;</string>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="initPage">
        <widget class="QLabel" name="appTitle">
@@ -158,8 +158,8 @@ QPushButton::pressed {
         <property name="geometry">
          <rect>
           <x>70</x>
-          <y>50</y>
-          <width>351</width>
+          <y>60</y>
+          <width>331</width>
           <height>41</height>
          </rect>
         </property>
@@ -491,7 +491,7 @@ QProgressBar::chunk{
          <string>%p%</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="makeCopyPB_2">
+       <widget class="QPushButton" name="abortPB">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -899,6 +899,22 @@ QPushButton::pressed {
     <hint type="destinationlabel">
      <x>224</x>
      <y>540</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>abortPB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>done()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>139</y>
     </hint>
    </hints>
   </connection>

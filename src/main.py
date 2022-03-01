@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 
-from Stacked_AlphaCopy_app.mainwindow import MainWindow
+from screen_ui.mainwindow import MainWindow
 from PyQt5 import QtWidgets
 
 if __name__ == "__main__":
@@ -9,3 +9,4 @@ if __name__ == "__main__":
     mainwindow = MainWindow()
     mainwindow.show()
     sys.exit(app.exec_())
+

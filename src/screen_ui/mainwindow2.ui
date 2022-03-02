@@ -47,7 +47,7 @@ border-radius: 10px;</string>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="initPage">
        <widget class="QLabel" name="appTitle">
@@ -491,7 +491,7 @@ QProgressBar::chunk{
          <string>%p%</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="abortPB">
+       <widget class="QPushButton" name="abortCopyPB">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -524,71 +524,8 @@ QPushButton::pressed {
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="page">
-       <widget class="QProgressBar" name="verifyingProgrB_2">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>100</y>
-          <width>381</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QProgressBar {
-	background-color: rgb(100, 130, 200);
-	color: rgb(230, 230, 230);
-	border-style: none;
-	border-radius: 30px;
-	text-align: center;
-}
-QProgressBar::chunk{
-	border-radius: 35px;
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));
-}</string>
-        </property>
-        <property name="minimum">
-         <number>0</number>
-        </property>
-        <property name="maximum">
-         <number>8</number>
-        </property>
-        <property name="value">
-         <number>0</number>
-        </property>
-        <property name="format">
-         <string>%p%</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="copyingFileLb_2">
-        <property name="geometry">
-         <rect>
-          <x>70</x>
-          <y>60</y>
-          <width>331</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>15</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(35, 175, 136);</string>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;VERIFYING FILES...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <zorder>copyingFileLb_2</zorder>
-       <zorder>verifyingProgrB_2</zorder>
-      </widget>
       <widget class="QWidget" name="successCopy">
-       <widget class="QLabel" name="SuccesfulLb">
+       <widget class="QLabel" name="succesfulLb">
         <property name="geometry">
          <rect>
           <x>60</x>
@@ -612,7 +549,7 @@ QProgressBar::chunk{
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QPushButton" name="DonePB">
+       <widget class="QPushButton" name="donePB">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -799,6 +736,69 @@ QPushButton::pressed {
        <zorder>ejectedLb</zorder>
        <zorder>newCoyPB</zorder>
       </widget>
+      <widget class="QWidget" name="verifying">
+       <widget class="QProgressBar" name="verifyingProgrB">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>100</y>
+          <width>381</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	background-color: rgb(100, 130, 200);
+	color: rgb(230, 230, 230);
+	border-style: none;
+	border-radius: 30px;
+	text-align: center;
+}
+QProgressBar::chunk{
+	border-radius: 35px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));
+}</string>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>8</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="format">
+         <string>%p%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="verifyingLb">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>60</y>
+          <width>331</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(35, 175, 136);</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;VERIFYING FILES...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <zorder>verifyingLb</zorder>
+       <zorder>verifyingProgrB</zorder>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -855,7 +855,7 @@ QPushButton::pressed {
    </hints>
   </connection>
   <connection>
-   <sender>DonePB</sender>
+   <sender>donePB</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>done()</slot>
@@ -903,18 +903,18 @@ QPushButton::pressed {
    </hints>
   </connection>
   <connection>
-   <sender>abortPB</sender>
+   <sender>abortCopyPB</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>done()</slot>
+   <slot>abort_copy()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>235</x>
-     <y>230</y>
+     <x>276</x>
+     <y>231</y>
     </hint>
     <hint type="destinationlabel">
-     <x>239</x>
-     <y>139</y>
+     <x>293</x>
+     <y>407</y>
     </hint>
    </hints>
   </connection>
@@ -925,5 +925,6 @@ QPushButton::pressed {
   <slot>done()</slot>
   <slot>return_to_main_page()</slot>
   <slot>eject()</slot>
+  <slot>abort_copy()</slot>
  </slots>
 </ui>

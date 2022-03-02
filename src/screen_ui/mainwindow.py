@@ -12,7 +12,7 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super(MainWindow, self).__init__()
-        uic.loadUi('screen_ui/mainwindow2.ui', self)
+        uic.loadUi('screen_ui/mainwindow.ui', self)
         logo = QPixmap('assets/logos/alphaletter.png')
         self.logoLabel.setPixmap(logo.scaled(QSize(110, 70)))
         hddIcon = QPixmap('assets/devices/usb-black.png')

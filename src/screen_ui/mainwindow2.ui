@@ -47,7 +47,7 @@ border-radius: 10px;</string>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>8</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="initPage">
        <widget class="QLabel" name="appTitle">
@@ -222,10 +222,10 @@ QPushButton::pressed {
        <widget class="QLabel" name="notFoundDescriptionLb">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>100</y>
-          <width>331</width>
-          <height>17</height>
+          <x>10</x>
+          <y>180</y>
+          <width>461</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="font">

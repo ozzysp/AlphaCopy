@@ -54,7 +54,7 @@ class DevicesUtil(QObject):
     # by @ozzysp, with later modifications by @nicmorais
     def make_dir(self, base_path):
         now = datetime.now()
-        dt_string = now.strftime("%d_%m_%Y_%H:%M")
+        dt_string = now.strftime('%Y_%m_%d_%H-%M-%S')
         os.chdir(base_path)
         new_folder = dt_string
         os.mkdir(base_path + '/' + new_folder)

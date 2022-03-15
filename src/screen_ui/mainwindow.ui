@@ -47,21 +47,20 @@ border-radius: 10px;</string>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="initPage">
        <widget class="QLabel" name="appTitle">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>10</y>
+          <x>30</x>
+          <y>20</y>
           <width>421</width>
           <height>61</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Laksaman</family>
           <pointsize>30</pointsize>
          </font>
         </property>
@@ -78,7 +77,7 @@ border-radius: 10px;</string>
        <widget class="QLabel" name="logoLabel">
         <property name="geometry">
          <rect>
-          <x>130</x>
+          <x>140</x>
           <y>100</y>
           <width>191</width>
           <height>81</height>
@@ -97,7 +96,7 @@ border-radius: 10px;</string>
        <widget class="QLabel" name="openSourceLb">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>30</x>
           <y>70</y>
           <width>421</width>
           <height>21</height>
@@ -105,7 +104,6 @@ border-radius: 10px;</string>
         </property>
         <property name="font">
          <font>
-          <family>Laksaman</family>
           <pointsize>10</pointsize>
          </font>
         </property>
@@ -122,7 +120,7 @@ border-radius: 10px;</string>
        <widget class="QPushButton" name="startPB">
         <property name="geometry">
          <rect>
-          <x>100</x>
+          <x>110</x>
           <y>200</y>
           <width>251</width>
           <height>61</height>
@@ -159,9 +157,9 @@ QPushButton::pressed {
        <widget class="QLabel" name="notFoundLb">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>50</y>
-          <width>401</width>
+          <x>70</x>
+          <y>60</y>
+          <width>331</width>
           <height>41</height>
          </rect>
         </property>
@@ -189,8 +187,8 @@ QPushButton::pressed {
        <widget class="QPushButton" name="scanAgainPB">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>130</y>
+          <x>110</x>
+          <y>100</y>
           <width>251</width>
           <height>61</height>
          </rect>
@@ -224,10 +222,10 @@ QPushButton::pressed {
        <widget class="QLabel" name="notFoundDescriptionLb">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>100</y>
-          <width>331</width>
-          <height>17</height>
+          <x>10</x>
+          <y>180</y>
+          <width>461</width>
+          <height>20</height>
          </rect>
         </property>
         <property name="font">
@@ -245,13 +243,16 @@ QPushButton::pressed {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
+       <zorder>notFoundLb</zorder>
+       <zorder>notFoundDescriptionLb</zorder>
+       <zorder>scanAgainPB</zorder>
       </widget>
       <widget class="QWidget" name="foundDevs">
        <widget class="QLabel" name="foundDevicesLb">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>20</y>
+          <x>30</x>
+          <y>40</y>
           <width>421</width>
           <height>31</height>
          </rect>
@@ -274,10 +275,10 @@ QPushButton::pressed {
        <widget class="QLabel" name="arrowLb">
         <property name="geometry">
          <rect>
-          <x>182</x>
-          <y>80</y>
+          <x>200</x>
+          <y>90</y>
           <width>79</width>
-          <height>31</height>
+          <height>51</height>
          </rect>
         </property>
         <property name="font">
@@ -302,7 +303,7 @@ QPushButton::pressed {
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>130</y>
+          <y>150</y>
           <width>113</width>
           <height>27</height>
          </rect>
@@ -333,8 +334,8 @@ QPushButton::pressed {
        <widget class="QPushButton" name="makeCopyPB">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>170</y>
+          <x>110</x>
+          <y>200</y>
           <width>251</width>
           <height>61</height>
          </rect>
@@ -368,8 +369,8 @@ QPushButton::pressed {
         </property>
         <property name="geometry">
          <rect>
-          <x>280</x>
-          <y>130</y>
+          <x>290</x>
+          <y>150</y>
           <width>113</width>
           <height>27</height>
          </rect>
@@ -401,7 +402,7 @@ QPushButton::pressed {
         <property name="geometry">
          <rect>
           <x>63</x>
-          <y>60</y>
+          <y>80</y>
           <width>101</width>
           <height>61</height>
          </rect>
@@ -416,8 +417,8 @@ QPushButton::pressed {
        <widget class="QLabel" name="hddIconLb">
         <property name="geometry">
          <rect>
-          <x>290</x>
-          <y>60</y>
+          <x>300</x>
+          <y>80</y>
           <width>91</width>
           <height>61</height>
          </rect>
@@ -434,8 +435,8 @@ QPushButton::pressed {
        <widget class="QLabel" name="copyingFileLb">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>50</y>
+          <x>40</x>
+          <y>60</y>
           <width>401</width>
           <height>41</height>
          </rect>
@@ -458,10 +459,10 @@ QPushButton::pressed {
        <widget class="QProgressBar" name="copyProgrB">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>120</y>
+          <x>50</x>
+          <y>100</y>
           <width>381</width>
-          <height>71</height>
+          <height>61</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -469,7 +470,7 @@ QPushButton::pressed {
 	background-color: rgb(100, 130, 200);
 	color: rgb(230, 230, 230);
 	border-style: none;
-	border-radius: 35px;
+	border-radius: 30px;
 	text-align: center;
 }
 QProgressBar::chunk{
@@ -490,14 +491,46 @@ QProgressBar::chunk{
          <string>%p%</string>
         </property>
        </widget>
-      </widget>
-      <widget class="QWidget" name="successCopy">
-       <widget class="QLabel" name="SuccesfulLb">
+       <widget class="QPushButton" name="abortCopyPB">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>50</y>
-          <width>401</width>
+          <x>110</x>
+          <y>200</y>
+          <width>251</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));
+	color: rgb(255, 0, 4);
+	border-style: none;
+	border-radius: 30px;
+	text-align: center;
+}
+QPushButton::pressed {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(222, 151, 255, 255), stop:1 rgba(54, 237, 216, 255));
+	color: rgb(255, 38, 0);
+	border-style: none;
+	border-radius: 30px;
+	text-align: center;
+}</string>
+        </property>
+        <property name="text">
+         <string>ABORT!!!</string>
+        </property>
+        <property name="shortcut">
+         <string>Return</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="successCopy">
+       <widget class="QLabel" name="succesfulLb">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>60</y>
+          <width>351</width>
           <height>41</height>
          </rect>
         </property>
@@ -516,11 +549,11 @@ QProgressBar::chunk{
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QPushButton" name="DonePB">
+       <widget class="QPushButton" name="donePB">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>130</y>
+          <x>110</x>
+          <y>100</y>
           <width>251</width>
           <height>61</height>
          </rect>
@@ -553,8 +586,8 @@ QPushButton::pressed {
        <widget class="QPushButton" name="errorDonePB">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>130</y>
+          <x>110</x>
+          <y>100</y>
           <width>251</width>
           <height>61</height>
          </rect>
@@ -585,8 +618,8 @@ QPushButton::pressed {
        <widget class="QLabel" name="errorsFoundLb">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>50</y>
+          <x>40</x>
+          <y>60</y>
           <width>401</width>
           <height>41</height>
          </rect>
@@ -606,13 +639,15 @@ QPushButton::pressed {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
+       <zorder>errorsFoundLb</zorder>
+       <zorder>errorDonePB</zorder>
       </widget>
       <widget class="QWidget" name="ejectDevs">
        <widget class="QPushButton" name="ejectPB">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>90</y>
+          <x>110</x>
+          <y>100</y>
           <width>251</width>
           <height>61</height>
          </rect>
@@ -645,8 +680,8 @@ QPushButton::pressed {
        <widget class="QPushButton" name="newCoyPB">
         <property name="geometry">
          <rect>
-          <x>100</x>
-          <y>120</y>
+          <x>110</x>
+          <y>100</y>
           <width>251</width>
           <height>61</height>
          </rect>
@@ -677,8 +712,8 @@ QPushButton::pressed {
        <widget class="QLabel" name="ejectedLb">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>50</y>
+          <x>30</x>
+          <y>60</y>
           <width>421</width>
           <height>41</height>
          </rect>
@@ -698,6 +733,71 @@ QPushButton::pressed {
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
+       <zorder>ejectedLb</zorder>
+       <zorder>newCoyPB</zorder>
+      </widget>
+      <widget class="QWidget" name="verifying">
+       <widget class="QProgressBar" name="verifyingProgrB">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>100</y>
+          <width>381</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QProgressBar {
+	background-color: rgb(100, 130, 200);
+	color: rgb(230, 230, 230);
+	border-style: none;
+	border-radius: 30px;
+	text-align: center;
+}
+QProgressBar::chunk{
+	border-radius: 35px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(0, 0, 0, 255), stop:0.0138249 rgba(0, 0, 0, 255), stop:0.0184332 rgba(143, 66, 231, 255), stop:0.976959 rgba(14, 218, 195, 255), stop:1 rgba(255, 255, 255, 255));
+}</string>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>8</number>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="format">
+         <string>%p%</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="verifyingLb">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>60</y>
+          <width>331</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(35, 175, 136);</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;VERIFYING FILES...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <zorder>verifyingLb</zorder>
+       <zorder>verifyingProgrB</zorder>
       </widget>
      </widget>
     </item>
@@ -755,7 +855,7 @@ QPushButton::pressed {
    </hints>
   </connection>
   <connection>
-   <sender>DonePB</sender>
+   <sender>donePB</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>done()</slot>
@@ -802,6 +902,22 @@ QPushButton::pressed {
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>abortCopyPB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>abort_copy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>276</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>293</x>
+     <y>407</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>scan()</slot>
@@ -809,5 +925,6 @@ QPushButton::pressed {
   <slot>done()</slot>
   <slot>return_to_main_page()</slot>
   <slot>eject()</slot>
+  <slot>abort_copy()</slot>
  </slots>
 </ui>

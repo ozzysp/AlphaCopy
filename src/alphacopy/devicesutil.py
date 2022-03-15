@@ -5,6 +5,7 @@ from PyQt5.QtCore import QObject, pyqtSignal
 from datetime import datetime
 from humanize import naturalsize
 from pathlib import Path
+import hashlib
 
 
 class DevicesUtil(QObject):
@@ -34,6 +35,17 @@ class DevicesUtil(QObject):
         files = [str(item) for item in list(Path(dir).rglob("*"))]
         return files
 
+    def get_hash(self, filename):
+        sha256_hash = hashlib.sha256()
+        with open(filename, "rb") as f:
+            # Read and update hash string value in blocks of 4K
+            for byte_block in iter(lambda: f.read(4096), b""):
+                sha256_hash.update(byte_block)
+        return sha256_hash.hexdigest()
+
+    def compare_hash(self, file1, file2):
+        return self.getHash(file1) == self.getHash(file2)
+
     # This function copies all files from one volume to another by @nicmorais
     def copy_files(self, files, dest):
         try:
@@ -46,7 +58,10 @@ class DevicesUtil(QObject):
             path = Path(dest_path)
             if Path(file).is_file():
                 shutil.copy2(file, dest_path)
-                self.file_copied.emit()
+                if self.compare_hash(file, dest_path):
+                    self.file_copied.emit()
+                else:
+                    error_msg = "Error: " + file
             else:
                 path.mkdir(exist_ok=True)
 

@@ -12,9 +12,9 @@ class DevicesUtil(QObject):
     file_copied = pyqtSignal()
     volumes_path = ''
 
-    def __init__(self):
+    def __init__(self, user = os.environ.get('USER')):
         super(QObject, self).__init__()
-        self.volumes_path = '/media/' + os.environ.get('USER')
+        self.volumes_path = '/media/' + user
 
     # This function is used to get the list of all the volumes by @nicmorais
     def list_disks(self):
@@ -44,7 +44,7 @@ class DevicesUtil(QObject):
         return sha256_hash.hexdigest()
 
     def compare_hash(self, file1, file2):
-        return self.getHash(file1) == self.getHash(file2)
+        return self.get_hash(file1) == self.get_hash(file2)
 
     # This function copies all files from one volume to another by @nicmorais
     def copy_files(self, files, dest):
@@ -57,11 +57,7 @@ class DevicesUtil(QObject):
             dest_path = dest + '/' + '/'.join(file.split('/')[4:])
             path = Path(dest_path)
             if Path(file).is_file():
-                shutil.copy2(file, dest_path)
-                if self.compare_hash(file, dest_path):
-                    self.file_copied.emit()
-                else:
-                    error_msg = "Error: " + file
+                self.copy_file(file, dest_path)
             else:
                 path.mkdir(exist_ok=True)
 
@@ -74,6 +70,15 @@ class DevicesUtil(QObject):
         new_folder = dt_string
         os.mkdir(base_path + '/' + new_folder)
         return base_path + '/' + new_folder
+
+    def copy_file(self, file, dest_path):
+        shutil.copy2(file, dest_path)
+        if self.compare_hash(file, dest_path):
+            self.file_copied.emit()
+            return True
+        else:
+            error_msg = "Error: " + file
+            raise Exception(error_msg)
 
     # Ejects disk by label (by @nicmorais)
     def eject_disk(self, label):

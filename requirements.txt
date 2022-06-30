@@ -13,7 +13,7 @@ PyQt5-Qt5==5.15.2
 PyQt5-sip==12.9.1
 PyQt5-stubs==5.15.2.0
 PySide2==5.15.2.1
-pytest==5.4.3
+pytest==7.1.2
 shiboken2==5.15.2.1
 tomli==2.0.1
 wcwidth==0.2.5

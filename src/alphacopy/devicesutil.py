@@ -100,6 +100,9 @@ class DevicesUtil(QObject):
             raise Exception(error_msg)
 
     def eject_disk(self, label):
+        # Validação simples para evitar injeção de comandos
+        if not label.isalnum():
+            raise ValueError("Nome de dispositivo inválido")
         command = "umount " + self.volumes_path + "/" + label
         return os.system(command) == 0
 

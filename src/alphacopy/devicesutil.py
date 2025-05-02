@@ -1,6 +1,7 @@
 import os
 import shutil
 import psutil
+
 from PyQt5.QtCore import QObject, pyqtSignal
 from datetime import datetime
 from humanize import naturalsize
@@ -9,36 +10,57 @@ import hashlib
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 class DevicesUtil(QObject):
+    """
+    Utility class for device operations such as listing disks, copying files, and calculating hashes.
+    """
     file_copied = pyqtSignal()
     volumes_path = ''
 
-    def __init__(self, user = os.environ.get('USER')):
+    def __init__(self, user: str = os.environ.get('USER')):
+        """
+        Initialize DevicesUtil with the given user.
+        :param user: Username to construct the volumes path.
+        """
         super(QObject, self).__init__()
         self.volumes_path = '/media/' + user
 
-    def list_disks(self):
+    def list_disks(self) -> list:
+        """
+        List all disks in the volumes path.
+        :return: List of disk names.
+        """
         directories = []
         try:
             directories = os.listdir(self.volumes_path)
         except Exception as e:
-            print(f"Erro ao listar discos: {e}")
+            print(f"Error listing disks: {e}")
             directories = []
         return directories
 
-    def disk_size(self, label):
+    def disk_size(self, label: str) -> int:
+        """
+        Get the size of the disk in GB.
+        :param label: Disk label.
+        :return: Disk size in GB.
+        """
         try:
             total, used, free = shutil.disk_usage(os.path.join(self.volumes_path, label))
             return total // (2 ** 30)
         except Exception as e:
-            print(f"Erro ao obter tamanho do disco '{label}': {e}")
+            print(f"Error getting disk size '{label}': {e}")
             return 0
 
-    def list_files(self, dir):
+    def list_files(self, directory: str) -> list:
+        """
+        List all files and directories recursively from the given directory.
+        :param directory: The base directory to search.
+        :return: List of file and directory paths as strings.
+        """
         try:
-            files = [str(item) for item in list(Path(dir).rglob("*"))]
+            files = [str(item) for item in list(Path(directory).rglob("*"))]
             return files
         except Exception as e:
-            print(f"Erro ao listar arquivos em '{dir}': {e}")
+            print(f"Error listing files in '{directory}': {e}")
             return []
 
     def get_hash(self, filename):

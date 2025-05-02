@@ -6,7 +6,7 @@ from datetime import datetime
 from humanize import naturalsize
 from pathlib import Path
 import hashlib
-
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 class DevicesUtil(QObject):
     file_copied = pyqtSignal()
@@ -16,7 +16,6 @@ class DevicesUtil(QObject):
         super(QObject, self).__init__()
         self.volumes_path = '/media/' + user
 
-    # This function is used to get the list of all the volumes by @nicmorais
     def list_disks(self):
         directories = []
         try:
@@ -25,51 +24,71 @@ class DevicesUtil(QObject):
             pass
         return directories
 
-    # This function is used to get size in a volume by @nicmorais
     def disk_size(self, label):
         total, used, free = shutil.disk_usage(self.volumes_path + '/' + label)
         return total // (2 ** 30)
 
-    # This function is used to get the list files in volume by @nicmorais
     def list_files(self, dir):
         files = [str(item) for item in list(Path(dir).rglob("*"))]
         return files
 
     def get_hash(self, filename):
         sha256_hash = hashlib.sha256()
+        buffer_size = 262144  # 256 KB para maior desempenho
         with open(filename, "rb") as f:
-            # Read and update hash string value in blocks of 4K
-            for byte_block in iter(lambda: f.read(4096), b""):
+            for byte_block in iter(lambda: f.read(buffer_size), b""):
                 sha256_hash.update(byte_block)
         return sha256_hash.hexdigest()
 
     def compare_hash(self, file1, file2):
         return self.get_hash(file1) == self.get_hash(file2)
 
-    # This function copies all files from one volume to another by @nicmorais
+    def verify_copy(self, src, dst):
+        """
+        Verifica se dois arquivos são idênticos usando SHA-256.
+        Retorna True se forem idênticos, False caso contrário.
+        Não emite sinais nem altera o estado da interface.
+        """
+        return self.compare_hash(src, dst)
+
     def copy_files(self, files, dest):
         try:
             dest = self.make_dir(dest)
         except Exception as e:
             raise e
             return
-        for file in files:
-            dest_path = dest + '/' + '/'.join(file.split('/')[4:])
-            path = Path(dest_path)
+
+        # Get the common root of all files (the source root)
+        if files:
+            src_root = os.path.commonpath(files)
+        else:
+            src_root = ""
+
+        def copy_single_file(file):
+            # Compute the relative path from the source root
+            rel_path = os.path.relpath(file, start=src_root)
+            dest_path = os.path.join(dest, rel_path)
+            dest_dir = os.path.dirname(dest_path)
+            os.makedirs(dest_dir, exist_ok=True)
             if Path(file).is_file():
                 self.copy_file(file, dest_path)
             else:
-                path.mkdir(exist_ok=True)
+                Path(dest_path).mkdir(exist_ok=True)
 
-    # Creates a new directory in the target disk with current date and hour
-    # by @ozzysp, with later modifications by @nicmorais
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            futures = [executor.submit(copy_single_file, file) for file in files]
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except Exception as e:
+                    print(f"Erro ao copiar arquivo: {e}")
+
     def make_dir(self, base_path):
         now = datetime.now()
         dt_string = now.strftime('%Y_%m_%d_%H-%M-%S')
-        os.chdir(base_path)
-        new_folder = dt_string
-        os.mkdir(base_path + '/' + new_folder)
-        return base_path + '/' + new_folder
+        new_folder = os.path.join(base_path, dt_string)
+        os.makedirs(new_folder, exist_ok=True)
+        return new_folder
 
     def copy_file(self, file, dest_path):
         shutil.copy2(file, dest_path)
@@ -80,12 +99,10 @@ class DevicesUtil(QObject):
             error_msg = "Error: " + file
             raise Exception(error_msg)
 
-    # Ejects disk by label (by @nicmorais)
     def eject_disk(self, label):
         command = "umount " + self.volumes_path + "/" + label
         return os.system(command) == 0
 
-    # This function returns used space in choosed hdd (by @ozzysp)
     def used_disk(self):
         used_disk = psutil.disk_usage(self.volumes_path)
         used_space = str(used_disk[1])
@@ -93,7 +110,6 @@ class DevicesUtil(QObject):
         natural_bytes = (naturalsize(used_bytes))
         return natural_bytes
 
-    # This function display free space in chosen hdd (by @ozzysp)
     def free_disk(self):
         free_disk = psutil.disk_usage(self.volumes_path)
         free_space = str(free_disk[2])

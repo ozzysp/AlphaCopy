@@ -1,7 +1,12 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
 import pytest
 import filecmp
 from .utils import *
 from alphacopy.devicesutil import DevicesUtil
+from pathlib import Path
 
 devices = DevicesUtil("test_user")
 
@@ -58,3 +63,30 @@ def test_list_disks(tmpdir):
         assert disk in test_disks
 
     shutil.rmtree(volumes_path)
+
+
+def test_copy_files_parallel(random_tree, tmpdir):
+    """
+    Testa a cópia paralela de múltiplos arquivos e diretórios,
+    garantindo que todos os arquivos sejam copiados corretamente e com integridade.
+    """
+    src_root = random_tree
+    dst_root = tmpdir / "backup_dest"
+
+    devices = DevicesUtil("test_user")
+    files = [str(item) for item in Path(src_root).rglob("*") if Path(item).is_file()]
+
+    # Executa a cópia paralela
+    devices.copy_files(files, dst_root)
+
+    # Verifica se todos os arquivos foram copiados e se os hashes batem
+    for file in files:
+        # Monta o caminho relativo esperado no destino
+        rel_path = os.path.relpath(file, start=str(src_root))
+        # O método copy_files cria uma subpasta com timestamp
+        backup_folders = list(Path(dst_root).glob("*"))
+        assert backup_folders, "Nenhuma pasta de backup criada"
+        backup_folder = backup_folders[0]
+        dst_file = backup_folder / rel_path
+        assert dst_file.exists(), f"Arquivo não copiado: {dst_file}"
+        assert devices.compare_hash(file, dst_file), f"Hash diferente para o arquivo: {file}"

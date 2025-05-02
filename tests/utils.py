@@ -12,20 +12,18 @@ def random_tree(tmpdir):
     It deletes the entire tree after the test
     The tree is unique for each test run and each test function
     """
-
+    root = tmpdir
     def create_files(folder: str):
         for i in range(random.randint(1, 3)):
-            _ = create_random_file(folder=folder)
+            _ = create_random_file(folder)
 
     def create_folders(folder: str, child_folders: int):
         for i in range(child_folders + 1):
             new_folder = os.path.join(folder, str(uuid.uuid4()))
-            os.mkdir(new_folder)
+            os.makedirs(new_folder, exist_ok=True)
             create_files(new_folder)
             create_folders(new_folder, child_folders - 1)
 
-    root = tmpdir
-    os.makedirs(root)
     try:
         create_folders(root, 3)
         yield root
@@ -55,7 +53,7 @@ def create_random_file(tmpdir):
     The file size ranges from 1 byte to 1 KB
     The function returns a tuple with filename and filesize
     """
-    filename = tmpdir / str(uuid.uuid4())
+    filename = os.path.join(str(tmpdir), str(uuid.uuid4()))
     filesize = random.randint(1, 1024)  # file up to 1 MB
     write_random_data_to_file(filename, filesize)
     return filename

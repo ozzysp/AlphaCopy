@@ -1,3 +1,4 @@
+import sys
 import os
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
@@ -12,8 +13,12 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        ui_path = os.path.join(base_dir, "mainwindow.ui")
+        if hasattr(sys, '_MEIPASS'):
+            base_dir = sys._MEIPASS
+            ui_path = os.path.join(base_dir, "screen_ui", "mainwindow.ui")
+        else:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            ui_path = os.path.join(base_dir, "mainwindow.ui")
         uic.loadUi(ui_path, self)
         logo = QPixmap(os.path.join(base_dir, '../assets/logos/alphaletter.png'))
         self.logoLabel.setPixmap(logo.scaled(QSize(110, 70)))

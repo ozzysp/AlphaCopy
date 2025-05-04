@@ -1,9 +1,9 @@
+import os
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QSize
 from alphacopy.devicesutil import DevicesUtil
-
 
 class MainWindow(QMainWindow):
     devices = DevicesUtil()
@@ -11,13 +11,15 @@ class MainWindow(QMainWindow):
     hdd_label = ''
 
     def __init__(self):
-        super(MainWindow, self).__init__()
-        uic.loadUi('screen_ui/mainwindow.ui', self)
-        logo = QPixmap('assets/logos/alphaletter.png')
+        super().__init__()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        ui_path = os.path.join(base_dir, "mainwindow.ui")
+        uic.loadUi(ui_path, self)
+        logo = QPixmap(os.path.join(base_dir, '../assets/logos/alphaletter.png'))
         self.logoLabel.setPixmap(logo.scaled(QSize(110, 70)))
-        hddIcon = QPixmap('assets/devices/usb-black.png')
+        hddIcon = QPixmap(os.path.join(base_dir, '../assets/devices/usb-black.png'))
         self.hddIconLb.setPixmap(hddIcon.scaled(QSize(64, 64)))
-        sdIcon = QPixmap('assets/devices/Sycamoreent-Storage-Sd.png')
+        sdIcon = QPixmap(os.path.join(base_dir, '../assets/devices/Sycamoreent-Storage-Sd.png'))
         self.sdIconLb.setPixmap(sdIcon.scaled(QSize(64, 64)))
         self.stackedWidget.setCurrentIndex(0)
 
